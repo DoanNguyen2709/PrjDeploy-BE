@@ -1,42 +1,51 @@
 "use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("Users", {
+    await queryInterface.createTable("Doctor_Infor", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      email: {
+      doctorId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      specialtyId: {
+        type: Sequelize.INTEGER,
+      },
+      clinicId: {
+        type: Sequelize.INTEGER,
+      },
+
+      priceId: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      provinceId: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      paymentId: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      addressClinic: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      nameClinic: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      note: {
         type: Sequelize.STRING,
       },
-      password: {
-        type: Sequelize.STRING,
-      },
-      firstName: {
-        type: Sequelize.STRING,
-      },
-      lastName: {
-        type: Sequelize.STRING,
-      },
-      address: {
-        type: Sequelize.STRING,
-      },
-      gender: {
-        type: Sequelize.STRING,
-      },
-      roleId: {
-        type: Sequelize.STRING,
-      },
-      phonenumber: {
-        type: Sequelize.STRING,
-      },
-      positionId: {
-        type: Sequelize.STRING,
-      },
-      image: {
-        type:  Sequelize.BLOB("long"),
+      count: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
       },
 
       createdAt: {
@@ -50,6 +59,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("Users");
+    await queryInterface.dropTable("Doctor_Infor");
   },
 };
